@@ -49,11 +49,12 @@ begin
         "1000" when "000000", -- SLL
         "1010" when "000010", -- SRL
         "1011" when "000011", -- SRA
-        "1100" when "101010", -- SLT
-        "1111" when others;
+        "1101" when "101010", -- SLT
+        "1110" when "001011", -- MOVN
+        "0000" when others;
     with iALUOp select
         oAction <=
-        s_oAction when "0000", -- Funct if Opcode == "000000"
+        s_oAction when "1111", -- Funct if Opcode == "000000"
         iALUOp when others; -- Use OPcode instruction if opcode != "000000"
 
 end dataflow;

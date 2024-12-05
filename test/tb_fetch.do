@@ -3,25 +3,31 @@ vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/MIPS_typ
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/Multiplexers/mux2t1.vhd
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/Multiplexers/mux2t1_N.vhd
 
+
+
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/ALU/full_adder.vhd
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/ALU/full_adder_N.vhd
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/ALU/add_sub.vhd
 
 vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/ALU/barrel_shifter.vhd
 
-vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/ALU/ALU.vhd
-vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/test/ALU/tb_ALU.vhd
+vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/src/fetch.vhd
+vcom -reportprogress 300 -work work ~/cpre381/cpre381-toolflow/proj/test/tb_fetch.vhd
 
-vsim work.tb_ALU -voptargs=+acc
+vsim work.tb_fetch -voptargs=+acc
 
 add wave -position insertpoint  \
-sim:/tb_alu/s_iA \
-sim:/tb_alu/s_iB \
-sim:/tb_alu/s_iShamt \
-sim:/tb_alu/s_iALUOp \
-sim:/tb_alu/s_oResult \
-sim:/tb_alu/s_oCout \
-sim:/tb_alu/s_oOverflow \
-sim:/tb_alu/s_oZero
+sim:/tb_fetch/s_iAddr \
+sim:/tb_fetch/s_iJump \
+sim:/tb_fetch/S_iJumpReg \
+sim:/tb_fetch/s_iJumpRegData \
+sim:/tb_fetch/s_iBranch \
+sim:/tb_fetch/s_iZero \
+sim:/tb_fetch/s_iBEQ \
+sim:/tb_fetch/s_iBranchImm \
+sim:/tb_fetch/s_iJumpImm \
+sim:/tb_fetch/s_oAdder \
+sim:/tb_fetch/s_oPCPlus4
 
-run 1400
+
+run 800

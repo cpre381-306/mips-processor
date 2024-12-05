@@ -20,6 +20,7 @@ use work.MIPS_types.all;
 entity control is
     port (
         iOpcode     : in std_logic_vector(OPCODE_WIDTH -1 downto 0); -- 6 MSB of 32bit instruction
+        iFunct      : in std_logic_vector(OPCODE_WIDTH - 1 downto 0); -- only for JR
         -- iALUZero : in std_logic; -- TODO: Zero flag from ALU for PC src?
         -- oPCSrc : in std_logic; -- TODO: Selects using PC+4 or branch addy
         oRegDst     : out std_logic_vector(REGDST_WIDTH  - 1 downto 0); -- Selects r-type vs i-type vs R31 write register
@@ -30,6 +31,8 @@ entity control is
         oMemWrite   : out std_logic; -- Enable writing to memory in dmem
         oSignExt    : out std_logic; -- Sign extend immediate value
         oJump       : out std_logic; -- Selects setting PC to jump value or not
+        oJumpReg    : out std_logic;
+        oMovn       : out std_logic;
         oBranch     : out std_logic; -- Helps select using PC+4 or branch address by being Anded with ALU Zero
         oBranchEQ   : out std_logic; -- Determines if BNE or BEQ
         oALUOp      : out std_logic_vector(ALU_OP_WIDTH - 1 downto 0); -- Selects ALU operation or to select from funct field
@@ -38,9 +41,13 @@ end control;
 
 architecture dataflow of control is
 
+signal s_JumpCheck : std_logic;
+signal s_JumpReg : std_logic;
 
     -- Doesn't include JAL & others
 begin
+
+
     with iOpcode select
         oRegDst <=
             "00" when "001000",  -- Addi
@@ -64,9 +71,15 @@ begin
             "01" when "100011", -- lw
             "10" when "000011",  -- jal
             "00" when others;
+
+    with (iOpcode & iFunct) select
+        s_JumpReg <=
+            '1' when "000000001000",
+            '0' when others;
+
     with iOpcode select
         oRegWrite <=
-            '1' when "000000", -- R-type
+        (NOT s_JumpReg)  when "000000", -- R-type (Dont for JR)
             '1' when "001000", -- addi
             '1' when "001001", -- addiu
             '1' when "001100", -- andi
@@ -93,6 +106,8 @@ begin
             '1' when "100011",
             '1' when "001010",
             '1' when "101011",
+            '1' when "000100",  -- Beq
+            '1' when "000101",  -- Bne
             '0' when others;
     with iOpcode select
         oJump <=
@@ -112,23 +127,30 @@ begin
             '0' when others;
     with iOpcode select
         oALUOp <=
-            "0000" when "000000", -- Funct
-            "0010" when "001000",
-            "0010" when "001001",
+            "1111" when "000000", -- Funct
+            "0000" when "001000", -- addi
+            "0010" when "001001", -- addiu
             "0100" when "001100",
             "1001" when "001111", -- Lui
             "0010" when "100011",
             "0111" when "001110",
             "0101" when "001101",
-            "1100" when "001010",
-            "0010" when "101011",
-            "0011" when "000100",
-            "0011" when "000101",
+            "1101" when "001010", -- Slti
+            "0010" when "101011", -- sw
+            "0011" when "000100", -- beq
+            "0011" when "000101", -- bne
             "----" when "000010", -- J
             "0000" when others;
     with iOpcode select
         oHalt <=
             '1' when "010100",
             '0' when others;
-        
+
+    with (iOpcode & iFunct) select
+        oMovn <=
+            '1' when "000000001011",
+            '0' when others;
+    
+    oJumpReg <= s_JumpReg;
+
 end dataflow;

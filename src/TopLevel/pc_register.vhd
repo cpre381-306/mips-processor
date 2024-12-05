@@ -22,7 +22,7 @@ architecture behavior of pc_register is
        			o_Q          : out std_logic);   -- Data value output
 	end component;
 
-signal s_ADDR_RST : std_logic_vector(N - 1 downto 0) := x"00040000";
+signal s_ADDR_RST : std_logic_vector(N - 1 downto 0) := x"00400000";
 
 
 begin

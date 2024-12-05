@@ -28,7 +28,7 @@ entity MIPS_Processor is
 		iInstLd         : in std_logic;
 		iInstAddr       : in std_logic_vector(N-1 downto 0);
 		iInstExt        : in std_logic_vector(N-1 downto 0);
-		-- TODO: Hook this up to the output of the ALU.
+		-- Done: Hook this up to the output of the ALU.
 		-- It is important for synthesis that you have this
 		-- output that can effectively be impacted by all
 		-- other components so they are not optimized away.
@@ -84,6 +84,8 @@ signal s_MemRead 	: std_logic;
 signal s_MemWrite 	: std_logic;
 signal s_SignExt	: std_logic;
 signal s_Jump 		: std_logic;
+signal s_JumpReg	: std_logic;
+signal s_Movn		: std_logic;
 signal s_Branch 	: std_logic;
 signal s_BEQ		: std_logic;
 signal s_ALUOp 		: std_logic_vector(ALU_OP_WIDTH - 1 downto 0);
@@ -103,6 +105,7 @@ signal s_instr_Addr		: std_logic_vector(JADDR_WIDTH  - 1 downto 0); -- Addr widt
 --------------------------  GENERAL SIGNALS  --------------------------
 signal s_UpdatePC : std_logic_vector(DATA_WIDTH - 1 downto 0);			-- Input into PC register
 --signal s_WriteRegister : std_logic_vector(DATA_SELECT - 1 downto 0); 	-- Input into regfile i_Rd
+signal s_RegWrite : std_logic; -- Input into movn regwrite mux
 signal s_ReadRs : std_logic_vector(DATA_WIDTH - 1 downto 0); -- Output of regfile read Rs
 signal s_ReadRt : std_logic_vector(DATA_WIDTH - 1 downto 0); -- Output of regfile read Rt
 signal s_ALUInB : std_logic_vector(DATA_WIDTH - 1 downto 0); -- 2nd input of ALU (Imm)
@@ -110,6 +113,8 @@ signal s_ALUResult : std_logic_vector(DATA_WIDTH - 1 downto 0); -- Result from m
 signal s_Cout : std_logic; -- Carry out from ALU
 signal s_Zero : std_logic; -- Zero signal from ALU
 signal s_PCPlus4 : std_logic_vector(DATA_WIDTH - 1 downto 0);
+signal s_ALUPreMovn : std_logic_vector(DATA_WIDTH - 1 downto 0);
+signal s_MovnZero : std_logic;
 
 	--------------------------  COMPONENTS  --------------------------
 	component pc_register is
@@ -148,6 +153,7 @@ signal s_PCPlus4 : std_logic_vector(DATA_WIDTH - 1 downto 0);
 	component control is
 		port (
 			iOpcode     : in std_logic_vector(OPCODE_WIDTH -1 downto 0); -- 6 MSB of 32bit instruction
+			iFunct      : in std_logic_vector(OPCODE_WIDTH - 1 downto 0); -- only for JR
 			-- iALUZero : in std_logic; -- TODO: Zero flag from ALU for PC src?
 			-- oPCSrc : in std_logic; -- TODO: Selects using PC+4 or branch addy
 			oRegDst     : out std_logic_vector(REGDST_WIDTH - 1 downto 0); -- Selects r-type vs i-type write register
@@ -158,6 +164,8 @@ signal s_PCPlus4 : std_logic_vector(DATA_WIDTH - 1 downto 0);
 			oMemWrite   : out std_logic; -- Enable writing to memory in dmem
 			oSignExt	: out std_logic; -- Whether to sign extend the immediate or not
 			oJump       : out std_logic; -- Selects setting PC to jump value or not
+			oJumpReg	: out std_logic;
+			oMovn       : out std_logic;
 			oBranch     : out std_logic; -- Helps select using PC+4 or branch address by being Anded with ALU Zero
 			oBranchEQ   : out std_logic; -- Determines if BEQ or BNE
 			oALUOp      : out std_logic_vector(ALU_OP_WIDTH - 1 downto 0); -- Selects ALU operation or to select from funct field
@@ -247,6 +255,8 @@ begin
 		s_NextInstAddr when '0',
     	iInstAddr 	   when others;
 
+
+
 	IMem: mem
 	port map(
 		clk  => iCLK,
@@ -276,16 +286,19 @@ begin
 	Control_Unit: control
 	port map (
 		iOpcode     => s_instr_Opcode,
+		iFunct		=> s_instr_Funct,
 		-- iALUZero =>
 		-- oPCSrc   =>
 		oRegDst     => s_RegDst,
 		oALUSrc     => s_ALUSrc,
 		oMemtoReg   => s_MemtoReg,
-		oRegWrite   => s_RegWr,
+		oRegWrite   => s_RegWrite,
 		oMemRead    => s_MemRead,
 		oMemWrite   => s_MemWrite,
 		oSignExt	=> s_SignExt,
 		oJump       => s_Jump,
+		oJumpReg	=> s_JumpReg,
+		oMovn		=> s_Movn,
 		oBranch     => s_Branch,
 		oBranchEQ   => s_BEQ,
 		oALUOp      => s_ALUOp,
@@ -322,6 +335,14 @@ begin
 			"11111" when "10",
 			s_instr_Rt when others;
 
+
+	-- Selects reg write depending on if MOVN instruction is happening or not, otherwise use control RegWrite
+	with s_Movn select
+		s_RegWr <=
+			(NOT s_Zero) when '1',
+			s_RegWrite when others;
+			
+
 	Regfile_Unit: regfile
 	generic map(
 		N => DATA_WIDTH,
@@ -352,10 +373,19 @@ begin
         iB			=> s_ALUInB,
 		iShamt		=> s_instr_Shamt,
         iALUOp		=> s_ALUAction,
-        oResult		=> s_ALUResult,
+        oResult		=> s_ALUPreMovn,
         oCout		=> s_Cout,
         oOverflow	=> s_Ovfl, -- Given Signal
         oZero		=> s_Zero);
+
+
+	-- Movn mux after ALU
+	with (s_Movn AND (NOT s_Zero)) select
+		s_ALUResult <=
+			s_ReadRs when '1',
+			s_ALUPreMovn when others;
+
+
 
 	-- Changed to 3-1 mux using with-select below
 	-- MemtoReg_Mux: mux2t1_N
@@ -378,7 +408,7 @@ begin
 	port map(
 		i_Addr		=> s_NextInstAddr,
 		i_Jump		=> s_Jump,
-		i_JumpReg	=> NOT (s_RegWr OR s_MemRead OR s_MemWrite OR s_Jump OR s_Branch), -- TODO: total hack, should fix
+		i_JumpReg	=> s_JumpReg,
 		i_JumpRegData=> s_ReadRs,
 		i_Branch	=> s_Branch,
 		i_Zero      => s_Zero,

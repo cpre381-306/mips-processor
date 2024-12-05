@@ -33,11 +33,11 @@ architecture behavior of fetch is
 	end component;
 
 	
-	component full_adder_N is --add feature
+	component add_sub is --add feature
 		port(
 			iA		: in 	std_logic_vector(DATA_WIDTH - 1 downto 0);
 			iB		: in 	std_logic_vector(DATA_WIDTH-1 downto 0);
-			iCin	: in 	std_logic; -- Not needed
+			iSubtract: in   std_logic;
 			oSum	: out 	std_logic_vector(DATA_WIDTH-1 downto 0);
 			oCout2	: out	std_logic; -- Not needed: Cout before the last adder
 		 	oCout 	: out 	std_logic);
@@ -70,11 +70,11 @@ begin
 	--generic(int : integer := 4);
 	--G_NBit_MUX: for i in 0 to 31 generate -- there are 32 registers that will be tried in the mux
 	
-	Add4: full_adder_N
+	Add4: add_sub
 	port map (
+		iSubtract => '0',
 		iA		=> i_Addr, 		-- PC input
 		iB		=> x"00000004", -- 4
-		iCin	=> '0',
 		oSum	=> s_PCPlus4, 	-- PC plus 4
 		oCout2	=> open,
 		oCout	=> open);
@@ -95,15 +95,16 @@ begin
 		iShamt       => "00010",
 		oResult      => s_BranchImmShift);
 
-	s_JumpTarget <= s_PCPlus4(Data_Width - 1 downto 28) & s_JumpImmShift(27 downto 0);
+	s_JumpTarget <= s_PCPlus4(DATA_WIDTH - 1 downto 28) & s_JumpImmShift(27 downto 0);
 
-	ADD_ALU: full_adder_N
+	ADD_ALU: add_sub
 	 --(pc+4) + shift2 to branch mux
 	port map (
 		iA			 => s_PCPlus4,
 		iB			 => s_BranchImmShift, -- shift2 sign ext
-		iCin		 => '0',
+		iSubtract	 => '0',
 		oSum		 => s_BranchTarget, -- PC+4 + shift2 sign ext
+		oCout2		 => open,
 		oCout 		 => open);
 	
 	-- Branches_And: andg2

@@ -14,4 +14,4 @@ sim:/tb_barrel_shifter/s_iArithmetic \
 sim:/tb_barrel_shifter/s_iShamt \
 sim:/tb_barrel_shifter/s_oResult
 
-run 1000
+run 1800

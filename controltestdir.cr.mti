@@ -1,0 +1,276 @@
+/home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/test/tb_control.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/test/tb_control.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity tb_control
+-- Compiling architecture behavior of tb_control
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/extender.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/extender.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity extender
+-- Compiling architecture dataflow of extender
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux2t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux2t1.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1
+-- Compiling architecture behavior of mux2t1
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd {0 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity regfile
+-- Compiling architecture structural of regfile
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(96): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(103): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(110): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(117): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(124): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(131): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(138): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(145): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(152): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(159): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(166): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(173): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(180): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(187): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(194): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(201): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(208): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(215): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(222): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(229): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(236): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(243): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(250): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(257): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(264): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(271): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(278): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(285): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(292): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(299): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(306): (vcom-1436) Actual expression (infix expression) of formal "i_WE" is not globally static.
+** Note: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/regfile.vhd(385): VHDL Compiler exiting
+
+} {8.0 39.0} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/full_adder_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/full_adder_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity full_adder_N
+-- Compiling architecture combination of full_adder_N
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/pc_register.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/pc_register.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity pc_register
+-- Compiling architecture behavior of pc_register
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/mem.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/mem.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package MIPS_types
+-- Compiling entity mem
+-- Compiling architecture rtl of mem
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux32t1.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux32t1.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux32t1
+-- Compiling architecture behavior of mux32t1
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU_control.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU_control.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity ALU_control
+-- Compiling architecture dataflow of ALU_control
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/fetch.vhd {0 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/fetch.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity fetch
+-- Compiling architecture behavior of fetch
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/fetch.vhd(84): (vcom-1436) Actual expression (infix expression) of formal "iA" is not globally static.
+** Error: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/fetch.vhd(141): (vcom-1436) Actual expression (infix expression) of formal "i_S" is not globally static.
+** Note: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/fetch.vhd(166): VHDL Compiler exiting
+
+} {9.0 11.0} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/ALU.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/ALU.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity ALU
+-- Compiling architecture mixed of ALU
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/ones_compg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/ones_compg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity ones_compg
+-- Compiling architecture structural of ones_compg
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux2t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux2t1_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2t1_N
+-- Compiling architecture structural of mux2t1_N
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/add_sub.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/add_sub.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity add_sub
+-- Compiling architecture behavior of add_sub
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/MIPS_types.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/MIPS_types.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling package MIPS_types
+-- Compiling package body MIPS_types
+-- Loading package MIPS_types
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/dffg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg
+-- Compiling architecture mixed of dffg
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux32t1_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/Multiplexers/mux32t1_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux32t1_N
+-- Compiling architecture structural of mux32t1_N
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/xorg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/xorg2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity xorg2
+-- Compiling architecture dataflow of xorg2
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/org2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/org2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity org2
+-- Compiling architecture dataflow of org2
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/pc_dffg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/pc_dffg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity pc_dffg
+-- Compiling architecture mixed of pc_dffg
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/invg.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/invg.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity invg
+-- Compiling architecture dataflow of invg
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/control.vhd {2 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/control.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity control
+-- Compiling architecture dataflow of control
+** Warning: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/control.vhd(75): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
+** Warning: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/control.vhd(149): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/andg2.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/BasicGates/andg2.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity andg2
+-- Compiling architecture dataflow of andg2
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/MIPS_Processor.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/TopLevel/MIPS_Processor.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity MIPS_Processor
+-- Compiling architecture structure of MIPS_Processor
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/decoder_N.vhd {0 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/decoder_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity decoder_N
+-- Compiling architecture dataflow of decoder_N
+** Error (suppressible): /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/decoder_N.vhd(15): (vcom-1014) Array type selected signal assignment expression must be of a locally static subtype.
+** Note: /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/decoder_N.vhd(49): VHDL Compiler exiting
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/dffg_N.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/SubComponents/dffg_N.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity dffg_N
+-- Compiling architecture behavior of dffg_N
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/full_adder.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/full_adder.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity full_adder
+-- Compiling architecture dataflow of full_adder
+
+} {} {}} /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/barrel_shifter.vhd {1 {vcom -work work -2002 -explicit -vopt -stats=none /home/edknott/Desktop/cpr381/cpre381-toolflow-proj1/proj/src/ALU/barrel_shifter.vhd
+QuestaSim-64 vcom 2021.2 Compiler 2021.04 Apr 14 2021
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package MIPS_types
+-- Compiling entity barrel_shifter
+-- Compiling architecture mixed of barrel_shifter
+
+} {} {}}
